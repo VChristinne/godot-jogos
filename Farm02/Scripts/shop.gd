@@ -104,9 +104,6 @@ func buy_item(item):
 					Global.num_orange_pack += 1
 				7:
 					Global.num_cabbage_pack += 1
-
-			$Purchased_Icon.animation = get_item_animation(item)
-			$Purchased_Icon.show()
 			
 		else:
 			print("Limite de compra atingido para ", get_item_name(item))
