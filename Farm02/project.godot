@@ -33,6 +33,7 @@ window/stretch/aspect="keep"
 [global]
 
 menu=false
+debug=false
 
 [gui]
 

@@ -9,7 +9,6 @@ var item_quantity = {}
 
 func _ready():
 	$Shop_Menu.visible = false
-	$Shop_Menu/Pack_Icon.play(get_item_animation(current_item))
 
 func _on_Area2D_body_entered(body):
 	if body.has_method("player_shop_method"):
@@ -22,6 +21,7 @@ func _physics_process(_delta):
 	if self.visible:
 		$Shop_Menu/Pack_Icon.play(get_item_animation(current_item))
 		$Shop_Menu/Price_Text.text = str(get_item_price(current_item))
+		$Shop_Menu/Name_Text.text = str(get_item_name(current_item))
 
 func _on_Btn_Buy_pressed():
 	buy_item(current_item)

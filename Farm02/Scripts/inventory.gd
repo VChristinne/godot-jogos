@@ -1,34 +1,49 @@
 extends Control
 
-var plants_visible = false
-var selected_pack = 1
+var PACK_ICON_OFFSET = 15
+var PACK_ICON_START_X = 105
+var PACK_ICON_START_Y = 169.5
+var seeds_visible : bool = false
+var selected_pack : int = 1
 
-func _ready():
-	updateIconsVisibility()
+func _ready() -> void:
+	update_icons_visibility()
 
-func updateIconsVisibility():
-	var pack_icons = get_node("Color_Inventory_Pack").get_children()
-	var plants_icons = get_node("Color_Inventory").get_children()
+func update_icons_visibility() -> void:
+	update_pack_icons_visibility()
+	update_seed_icons_visibility()
 
+func update_pack_icons_visibility() -> void:
+	var pack_icons : Array = get_node("HUD_Pack").get_children()
+	
 	for icon in pack_icons:
-		icon.visible = !plants_visible
+		icon.visible = !seeds_visible
 
-	for icon in plants_icons:
-		icon.visible = plants_visible
+func update_seed_icons_visibility() -> void:
+	var seed_icons : Array = get_node("HUD_Seed").get_children()
 
-func _input(event):
-	if Input.is_action_just_pressed("inventory_next"):
-		plants_visible = !plants_visible
-		updateIconsVisibility()
+	for icon in seed_icons:
+		icon.visible = seeds_visible
 
+func _input(event : InputEvent) -> void:
 	if event is InputEventKey:
-		if event.scancode >= KEY_1 and event.scancode <= KEY_7 and not plants_visible and event.pressed:
-			selected_pack = event.scancode - KEY_1 + 1
-			Global.plant_selected = selected_pack
+		handle_key_input(event)
 
-			var mark_icon = $Color_Inventory_Pack/Mark_Icon
-			var x_offset = selected_pack * 15
-			mark_icon.global_position.x = 105 + x_offset
-			mark_icon.global_position.y = 171.5
+func handle_key_input(event : InputEventKey) -> void:
+	if event.scancode >= KEY_1 and event.scancode <= KEY_7 and not seeds_visible and event.pressed:
+		selected_pack = event.scancode - KEY_1 + 1
+		Global.plant_selected = selected_pack
 
-			print("Pacote selecionado: ", selected_pack)
+		var mark_icon = $HUD_Pack/Mark_Icon
+		var x_offset = selected_pack * PACK_ICON_OFFSET
+		mark_icon.global_position.x = PACK_ICON_START_X + x_offset
+		mark_icon.global_position.y = PACK_ICON_START_Y
+		
+		print_debug("\nX: ", mark_icon.global_position.x)
+		print_debug("Y: ", mark_icon.global_position.y)
+		
+		print_debug("Pacote selecionado: ", selected_pack)
+
+	elif Input.is_action_just_pressed("inventory_next"):
+		seeds_visible = !seeds_visible
+		update_icons_visibility()

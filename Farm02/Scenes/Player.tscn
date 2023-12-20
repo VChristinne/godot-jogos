@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/player_settings.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tilesheet.png" type="Texture" id=2]
+[ext_resource path="res://Assets/light.png" type="Texture" id=3]
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 2 )
@@ -82,3 +83,23 @@ animation = "anim_idle"
 [node name="Collision_Shape" type="CollisionShape2D" parent="."]
 position = Vector2( 166, 95 )
 shape = SubResource( 21 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 166, 93 )
+scale = Vector2( 0.18689, 0.150472 )
+texture = ExtResource( 3 )
+texture_scale = 0.5
+color = Color( 0.172549, 0.172549, 0.172549, 1 )
+range_height = 4.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 165, 92 )
+current = true
+zoom = Vector2( 0.8, 0.8 )
+limit_left = 0
+limit_top = 0
+limit_right = 320
+limit_bottom = 192
+editor_draw_limits = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Solaria.png-6e968f46854dc4746a594a36bc020ed1.stex"
+path="res://.import/1.png-7f8aff6b1c43918c4b73e897ee1ea1cf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Solaria.png"
-dest_files=[ "res://.import/Solaria.png-6e968f46854dc4746a594a36bc020ed1.stex" ]
+source_file="res://Assets/Free Paper UI System/1 Sprites/Paper UI Pack/Paper UI/Folding & Cutout/3 Item Holder/1.png"
+dest_files=[ "res://.import/1.png-7f8aff6b1c43918c4b73e897ee1ea1cf.stex" ]
 
 [params]
 

@@ -18,7 +18,7 @@ var num_apple_pack = 0
 var num_orange_pack = 0
 var num_cabbage_pack = 0
 
-var coin = 5000
+var coin = 1000
 var owned_itens = []
 
 var item_prices = {

@@ -1,8 +1,10 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Assets/Tilesheet.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Arial Rounded Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Free Paper UI System/1 Sprites/Paper UI Pack/Paper UI/Folding & Cutout/3 Item Holder/1.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/inventory.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Fonts/Kenney Mini.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Scripts/show_fps.gd" type="Script" id=5]
 
 [sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 1 )
@@ -79,64 +81,14 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=22]
-size = 15
-font_data = ExtResource( 2 )
+[sub_resource type="DynamicFontData" id=38]
+font_path = "res://Assets/Fonts/Kenney Mini.ttf"
 
 [sub_resource type="DynamicFont" id=23]
 size = 15
-font_data = ExtResource( 2 )
-
-[sub_resource type="SpriteFrames" id=24]
-animations = [ {
-"frames": [ SubResource( 20 ) ],
-"loop": true,
-"name": "apple_icon",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 18 ) ],
-"loop": true,
-"name": "cabbage_icon",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 9 ) ],
-"loop": true,
-"name": "carrot_icon",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 10 ) ],
-"loop": true,
-"name": "coin_icon",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 16 ) ],
-"loop": true,
-"name": "corn_icon",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 7 ) ],
-"loop": true,
-"name": "onion_icon",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 19 ) ],
-"loop": true,
-"name": "orange_icon",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 17 ) ],
-"loop": true,
-"name": "strawberry_icon",
-"speed": 5.0
-} ]
-
-[sub_resource type="DynamicFont" id=25]
-size = 8
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=26]
-size = 8
-font_data = ExtResource( 2 )
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 38 )
 
 [sub_resource type="AtlasTexture" id=28]
 atlas = ExtResource( 1 )
@@ -204,9 +156,14 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="DynamicFontData" id=46]
+font_path = "res://Assets/Fonts/Kenney Mini.ttf"
+
 [sub_resource type="DynamicFont" id=35]
-size = 7
-font_data = ExtResource( 2 )
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 46 )
 
 [sub_resource type="AtlasTexture" id=36]
 atlas = ExtResource( 1 )
@@ -219,6 +176,80 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="SpriteFrames" id=24]
+animations = [ {
+"frames": [ SubResource( 20 ) ],
+"loop": true,
+"name": "apple_icon",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 18 ) ],
+"loop": true,
+"name": "cabbage_icon",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 9 ) ],
+"loop": true,
+"name": "carrot_icon",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 10 ) ],
+"loop": true,
+"name": "coin_icon",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 16 ) ],
+"loop": true,
+"name": "corn_icon",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 7 ) ],
+"loop": true,
+"name": "onion_icon",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 19 ) ],
+"loop": true,
+"name": "orange_icon",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 17 ) ],
+"loop": true,
+"name": "strawberry_icon",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFontData" id=44]
+font_path = "res://Assets/Fonts/Kenney Mini.ttf"
+
+[sub_resource type="DynamicFont" id=40]
+size = 10
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 44 )
+
+[sub_resource type="DynamicFontData" id=45]
+font_path = "res://Assets/Fonts/Kenney Mini.ttf"
+
+[sub_resource type="DynamicFont" id=42]
+size = 10
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 45 )
+
+[sub_resource type="DynamicFontData" id=43]
+font_path = "res://Assets/Fonts/Kenney Mini.ttf"
+
+[sub_resource type="DynamicFont" id=26]
+size = 10
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 43 )
+
+[sub_resource type="DynamicFont" id=47]
+size = 10
+font_data = ExtResource( 4 )
 
 [node name="Inventory" type="Control"]
 anchor_right = 1.0
@@ -238,323 +269,248 @@ __meta__ = {
 }
 
 [node name="Coin_Text" type="RichTextLabel" parent="Coin_Icon"]
-modulate = Color( 0, 0, 0, 1 )
-self_modulate = Color( 0, 0, 0, 1 )
-margin_left = 7.5
-margin_top = -8.75
-margin_right = 309.5
-margin_bottom = 11.25
-custom_fonts/bold_font = SubResource( 22 )
+margin_left = 10.0
+margin_top = -10.0
+margin_right = 328.0
 custom_fonts/normal_font = SubResource( 23 )
 bbcode_text = "0"
 text = "0"
 fit_content_height = true
 
-[node name="Color_Inventory" type="ColorRect" parent="."]
-margin_left = 108.0
-margin_top = 163.0
-margin_right = 222.0
-margin_bottom = 180.0
-color = Color( 0.494118, 0.494118, 0.494118, 0.196078 )
+[node name="HUD_Pack" type="Sprite" parent="."]
+position = Vector2( 166, 169 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Carrot_Icon" type="AnimatedSprite" parent="Color_Inventory"]
-position = Vector2( 27, 10 )
-scale = Vector2( 0.8, 0.8 )
-frames = SubResource( 24 )
-animation = "carrot_icon"
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Carrot_Text" type="RichTextLabel" parent="Color_Inventory/Carrot_Icon"]
-modulate = Color( 0, 1, 1, 1 )
-margin_top = -1.24998
-margin_right = 10.0
-margin_bottom = 9.75002
-custom_fonts/normal_font = SubResource( 25 )
-text = "0"
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Onion_Icon" type="AnimatedSprite" parent="Color_Inventory"]
-position = Vector2( 12, 10 )
-scale = Vector2( 0.8, 0.8 )
-frames = SubResource( 24 )
-animation = "onion_icon"
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Onion_Text" type="RichTextLabel" parent="Color_Inventory/Onion_Icon"]
-modulate = Color( 0, 1, 1, 1 )
-margin_top = -1.25
-margin_right = 9.0
-margin_bottom = 9.75
-custom_fonts/normal_font = SubResource( 26 )
-text = "0"
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Corn_Icon" type="AnimatedSprite" parent="Color_Inventory"]
-position = Vector2( 42, 10 )
-scale = Vector2( 0.8, 0.8 )
-frames = SubResource( 24 )
-animation = "corn_icon"
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Corn_Text" type="RichTextLabel" parent="Color_Inventory/Corn_Icon"]
-modulate = Color( 0, 1, 1, 1 )
-margin_top = -1.25
-margin_right = 9.0
-margin_bottom = 9.75
-custom_fonts/normal_font = SubResource( 26 )
-text = "0"
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Strawberry_Icon" type="AnimatedSprite" parent="Color_Inventory"]
-position = Vector2( 57, 10 )
-scale = Vector2( 0.8, 0.8 )
-frames = SubResource( 24 )
-animation = "strawberry_icon"
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Strawberry_Text" type="RichTextLabel" parent="Color_Inventory/Strawberry_Icon"]
-modulate = Color( 0, 1, 1, 1 )
-margin_left = 1.52588e-05
-margin_top = -1.25
-margin_right = 9.00002
-margin_bottom = 9.75
-custom_fonts/normal_font = SubResource( 26 )
-text = "0"
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Apple_Icon" type="AnimatedSprite" parent="Color_Inventory"]
-position = Vector2( 72, 10 )
-scale = Vector2( 0.8, 0.8 )
-frames = SubResource( 24 )
-animation = "apple_icon"
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Apple_Text" type="RichTextLabel" parent="Color_Inventory/Apple_Icon"]
-modulate = Color( 0, 1, 1, 1 )
-margin_left = 1.52588e-05
-margin_top = -1.25
-margin_right = 9.00002
-margin_bottom = 9.75
-custom_fonts/normal_font = SubResource( 26 )
-text = "0"
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Orange_Icon" type="AnimatedSprite" parent="Color_Inventory"]
-position = Vector2( 87, 10 )
-scale = Vector2( 0.8, 0.8 )
-frames = SubResource( 24 )
-animation = "orange_icon"
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Orange_Text" type="RichTextLabel" parent="Color_Inventory/Orange_Icon"]
-modulate = Color( 0, 1, 1, 1 )
-margin_top = -1.25
-margin_right = 9.0
-margin_bottom = 9.75
-custom_fonts/normal_font = SubResource( 26 )
-text = "0"
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Cabbage_Icon" type="AnimatedSprite" parent="Color_Inventory"]
-position = Vector2( 102, 10 )
-scale = Vector2( 0.8, 0.8 )
-frames = SubResource( 24 )
-animation = "cabbage_icon"
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Cabbage_Text" type="RichTextLabel" parent="Color_Inventory/Cabbage_Icon"]
-modulate = Color( 0, 1, 1, 1 )
-margin_left = -1.52588e-05
-margin_top = -1.25
-margin_right = 8.99998
-margin_bottom = 9.75
-custom_fonts/normal_font = SubResource( 26 )
-text = "0"
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Color_Inventory_Pack" type="ColorRect" parent="."]
-margin_left = 108.0
-margin_top = 163.0
-margin_right = 222.0
-margin_bottom = 180.0
-color = Color( 0.494118, 0.494118, 0.494118, 0.196078 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Carrot_Pack" type="AnimatedSprite" parent="Color_Inventory_Pack"]
-position = Vector2( 27, 10 )
+[node name="Carrot_Pack" type="AnimatedSprite" parent="HUD_Pack"]
+position = Vector2( -155, 4 )
+scale = Vector2( 3.5, 3.5 )
+z_index = 1
 frames = SubResource( 27 )
 animation = "carrot_pack"
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="Carrot_Text" type="RichTextLabel" parent="Color_Inventory_Pack/Carrot_Pack"]
-modulate = Color( 0, 1, 1, 1 )
-margin_left = 1.0
-margin_top = -1.0
+[node name="Carrot_Text" type="RichTextLabel" parent="HUD_Pack/Carrot_Pack"]
+margin_left = 3.0
+margin_top = -2.0
 margin_right = 11.0
-margin_bottom = 10.0
+margin_bottom = 12.0
 custom_fonts/normal_font = SubResource( 35 )
 text = "0"
 deselect_on_focus_loss_enabled = false
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="Onion_Pack" type="AnimatedSprite" parent="Color_Inventory_Pack"]
-position = Vector2( 12, 10 )
+[node name="Onion_Pack" type="AnimatedSprite" parent="HUD_Pack"]
+position = Vector2( -230, 4 )
+scale = Vector2( 3.5, 3.5 )
+z_index = 1
 frames = SubResource( 27 )
 animation = "onion_pack"
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="Onion_Text" type="RichTextLabel" parent="Color_Inventory_Pack/Onion_Pack"]
-modulate = Color( 0, 1, 1, 1 )
-margin_left = 1.0
-margin_top = -1.0
+[node name="Onion_Text" type="RichTextLabel" parent="HUD_Pack/Onion_Pack"]
+margin_left = 3.0
+margin_top = -2.0
 margin_right = 11.0
-margin_bottom = 10.0
+margin_bottom = 12.0
 custom_fonts/normal_font = SubResource( 35 )
 text = "0"
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="Corn_Pack" type="AnimatedSprite" parent="Color_Inventory_Pack"]
-position = Vector2( 42, 10 )
+[node name="Corn_Pack" type="AnimatedSprite" parent="HUD_Pack"]
+position = Vector2( -80, 4 )
+scale = Vector2( 3.5, 3.5 )
+z_index = 1
 frames = SubResource( 27 )
 animation = "corn_pack"
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="Corn_Text" type="RichTextLabel" parent="Color_Inventory_Pack/Corn_Pack"]
-modulate = Color( 0, 1, 1, 1 )
-margin_left = 1.0
-margin_top = -1.0
+[node name="Corn_Text" type="RichTextLabel" parent="HUD_Pack/Corn_Pack"]
+margin_left = 3.0
+margin_top = -2.0
 margin_right = 11.0
-margin_bottom = 10.0
+margin_bottom = 12.0
 custom_fonts/normal_font = SubResource( 35 )
 text = "0"
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="Strawberry_Pack" type="AnimatedSprite" parent="Color_Inventory_Pack"]
-position = Vector2( 58, 10 )
+[node name="Strawberry_Pack" type="AnimatedSprite" parent="HUD_Pack"]
+position = Vector2( 0, 4 )
+scale = Vector2( 3.5, 3.5 )
+z_index = 1
 frames = SubResource( 27 )
 animation = "strawberry_pack"
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="Strawberry_Text" type="RichTextLabel" parent="Color_Inventory_Pack/Strawberry_Pack"]
-modulate = Color( 0, 1, 1, 1 )
-margin_top = -1.0
-margin_right = 10.0
-margin_bottom = 10.0
+[node name="Strawberry_Text" type="RichTextLabel" parent="HUD_Pack/Strawberry_Pack"]
+margin_left = 3.0
+margin_top = -2.0
+margin_right = 11.0
+margin_bottom = 12.0
 custom_fonts/normal_font = SubResource( 35 )
 text = "0"
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="Apple_Pack" type="AnimatedSprite" parent="Color_Inventory_Pack"]
-position = Vector2( 72, 10 )
+[node name="Apple_Pack" type="AnimatedSprite" parent="HUD_Pack"]
+position = Vector2( 70, 4 )
+scale = Vector2( 3.5, 3.5 )
+z_index = 1
 frames = SubResource( 27 )
 animation = "apple_pack"
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="Apple_Text" type="RichTextLabel" parent="Color_Inventory_Pack/Apple_Pack"]
-modulate = Color( 0, 1, 1, 1 )
-margin_left = 1.0
-margin_top = -1.0
+[node name="Apple_Text" type="RichTextLabel" parent="HUD_Pack/Apple_Pack"]
+margin_left = 3.0
+margin_top = -2.0
 margin_right = 11.0
-margin_bottom = 10.0
+margin_bottom = 12.0
 custom_fonts/normal_font = SubResource( 35 )
 text = "0"
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="Orange_Pack" type="AnimatedSprite" parent="Color_Inventory_Pack"]
-position = Vector2( 87, 10 )
+[node name="Orange_Pack" type="AnimatedSprite" parent="HUD_Pack"]
+position = Vector2( 145, 4 )
+scale = Vector2( 3.5, 3.5 )
+z_index = 1
 frames = SubResource( 27 )
 animation = "orange_pack"
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="Orange_Text" type="RichTextLabel" parent="Color_Inventory_Pack/Orange_Pack"]
-modulate = Color( 0, 1, 1, 1 )
-margin_left = 1.0
-margin_top = -1.0
+[node name="Orange_Text" type="RichTextLabel" parent="HUD_Pack/Orange_Pack"]
+margin_left = 3.0
+margin_top = -2.0
 margin_right = 11.0
-margin_bottom = 10.0
+margin_bottom = 12.0
 custom_fonts/normal_font = SubResource( 35 )
 text = "0"
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="Cabbage_Pack" type="AnimatedSprite" parent="Color_Inventory_Pack"]
-position = Vector2( 102, 10 )
+[node name="Cabbage_Pack" type="AnimatedSprite" parent="HUD_Pack"]
+position = Vector2( 220, 4 )
+scale = Vector2( 3.5, 3.5 )
+z_index = 1
 frames = SubResource( 27 )
 animation = "cabbage_pack"
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="Cabbage_Text" type="RichTextLabel" parent="Color_Inventory_Pack/Cabbage_Pack"]
-modulate = Color( 0, 1, 1, 1 )
-margin_left = 1.0
-margin_top = -1.0
+[node name="Cabbage_Text" type="RichTextLabel" parent="HUD_Pack/Cabbage_Pack"]
+margin_left = 3.0
+margin_top = -2.0
 margin_right = 11.0
-margin_bottom = 10.0
+margin_bottom = 12.0
 custom_fonts/normal_font = SubResource( 35 )
 text = "0"
+
+[node name="Mark_Icon" type="AnimatedSprite" parent="HUD_Pack"]
+visible = false
+modulate = Color( 0.94902, 0.682353, 0.427451, 1 )
+position = Vector2( -230, 2.49997 )
+scale = Vector2( 5, 3.4 )
+z_index = 1
+frames = SubResource( 37 )
+
+[node name="HUD_Seed" type="Sprite" parent="."]
+position = Vector2( 166, 169 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Mark_Icon" type="AnimatedSprite" parent="Color_Inventory_Pack"]
-visible = false
-position = Vector2( 12, 8.5 )
-scale = Vector2( 1, 1.0625 )
-frames = SubResource( 37 )
+[node name="Carrot_Icon" type="AnimatedSprite" parent="HUD_Seed"]
+position = Vector2( -155, 5 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 24 )
+animation = "carrot_icon"
+
+[node name="Carrot_Text" type="RichTextLabel" parent="HUD_Seed/Carrot_Icon"]
+margin_left = 2.0
+margin_top = -3.0
+margin_right = 10.0
+margin_bottom = 12.0
+custom_fonts/normal_font = SubResource( 40 )
+text = "0"
+
+[node name="Onion_Icon" type="AnimatedSprite" parent="HUD_Seed"]
+position = Vector2( -230, 5 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 24 )
+animation = "onion_icon"
+
+[node name="Onion_Text" type="RichTextLabel" parent="HUD_Seed/Onion_Icon"]
+margin_left = 2.0
+margin_top = -3.0
+margin_right = 10.0
+margin_bottom = 12.0
+custom_fonts/normal_font = SubResource( 42 )
+text = "0"
+
+[node name="Corn_Icon" type="AnimatedSprite" parent="HUD_Seed"]
+position = Vector2( -80, 5 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 24 )
+animation = "corn_icon"
+
+[node name="Corn_Text" type="RichTextLabel" parent="HUD_Seed/Corn_Icon"]
+margin_left = 2.0
+margin_top = -3.0
+margin_right = 10.0
+margin_bottom = 12.0
+custom_fonts/normal_font = SubResource( 26 )
+text = "0"
+
+[node name="Strawberry_Icon" type="AnimatedSprite" parent="HUD_Seed"]
+position = Vector2( -5, 5 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 24 )
+animation = "strawberry_icon"
+
+[node name="Strawberry_Text" type="RichTextLabel" parent="HUD_Seed/Strawberry_Icon"]
+margin_left = 2.0
+margin_top = -3.0
+margin_right = 10.0
+margin_bottom = 12.0
+custom_fonts/normal_font = SubResource( 26 )
+text = "0"
+
+[node name="Apple_Icon" type="AnimatedSprite" parent="HUD_Seed"]
+position = Vector2( 70, 5 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 24 )
+animation = "apple_icon"
+
+[node name="Apple_Text" type="RichTextLabel" parent="HUD_Seed/Apple_Icon"]
+margin_left = 2.0
+margin_top = -3.0
+margin_right = 10.0
+margin_bottom = 12.0
+custom_fonts/normal_font = SubResource( 26 )
+text = "0"
+
+[node name="Orange_Icon" type="AnimatedSprite" parent="HUD_Seed"]
+position = Vector2( 145, 5 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 24 )
+animation = "orange_icon"
+
+[node name="Orange_Text" type="RichTextLabel" parent="HUD_Seed/Orange_Icon"]
+margin_left = 2.0
+margin_top = -3.0
+margin_right = 10.0
+margin_bottom = 12.0
+custom_fonts/normal_font = SubResource( 26 )
+text = "0"
+
+[node name="Cabbage_Icon" type="AnimatedSprite" parent="HUD_Seed"]
+position = Vector2( 220, 5 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 24 )
+animation = "cabbage_icon"
+
+[node name="Cabbage_Text" type="RichTextLabel" parent="HUD_Seed/Cabbage_Icon"]
+margin_left = 2.0
+margin_top = -3.0
+margin_right = 10.0
+margin_bottom = 12.0
+custom_fonts/normal_font = SubResource( 26 )
+text = "0"
+
+[node name="Show_FPS" type="Label" parent="."]
+margin_left = 255.0
+margin_right = 319.0
+margin_bottom = 13.0
+custom_fonts/font = SubResource( 47 )
+text = "0"
+align = 2
+uppercase = true
+script = ExtResource( 5 )
