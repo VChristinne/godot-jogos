@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://bvq0qiu7elvex"]
+
+[ext_resource type="Script" path="res://Scripts/Classes/class_weapon.gd" id="1_73xge"]
+[ext_resource type="Texture2D" uid="uid://du6xfeey2dhg2" path="res://Art/Weapon/tools.png" id="1_nje8t"]
+[ext_resource type="Script" path="res://Scripts/Player/weapon_axe.gd" id="2_4ojm6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjpd8"]
+atlas = ExtResource("1_nje8t")
+region = Rect2(64, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03gix"]
+atlas = ExtResource("1_nje8t")
+region = Rect2(80, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rngot"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjpd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03gix")
+}],
+"loop": true,
+"name": &"anim_axe_right",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33dlm"]
+size = Vector2(10, 9)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dbmg0"]
+radius = 6.0
+height = 12.0
+
+[node name="Weapon" type="Node2D"]
+script = ExtResource("1_73xge")
+
+[node name="Axe" type="CharacterBody2D" parent="."]
+script = ExtResource("2_4ojm6")
+
+[node name="Animation_Axe" type="AnimatedSprite2D" parent="Axe"]
+sprite_frames = SubResource("SpriteFrames_rngot")
+animation = &"anim_axe_right"
+
+[node name="Hitbox" type="CollisionShape2D" parent="Axe"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_33dlm")
+
+[node name="Area2D" type="Area2D" parent="Axe"]
+
+[node name="Hitbox_Area" type="CollisionShape2D" parent="Axe/Area2D"]
+position = Vector2(1, -1)
+shape = SubResource("CapsuleShape2D_dbmg0")

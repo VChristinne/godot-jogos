@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://d3cymh8b62d7x"]
+
+[ext_resource type="Texture2D" uid="uid://6i53mxy034au" path="res://Art/Cow/cow_move.png" id="1_jvuce"]
+[ext_resource type="Script" path="res://Scripts/Cow/cow_enemy.gd" id="1_tqlpy"]
+[ext_resource type="PackedScene" uid="uid://bvq0qiu7elvex" path="res://Scenes/weapon.tscn" id="2_5oeyh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytvg3"]
+atlas = ExtResource("1_jvuce")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a73p0"]
+atlas = ExtResource("1_jvuce")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj7rn"]
+atlas = ExtResource("1_jvuce")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r8n0k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytvg3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a73p0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pj7rn")
+}],
+"loop": true,
+"name": &"anim_idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_risr1"]
+size = Vector2(27.5, 19.1667)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_agqiy"]
+radius = 13.8373
+
+[node name="Cow" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_tqlpy")
+
+[node name="Weapon" parent="." instance=ExtResource("2_5oeyh")]
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+position = Vector2(454.5, 217)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_r8n0k")
+animation = &"anim_idle"
+frame = 2
+frame_progress = 0.392513
+flip_h = true
+
+[node name="Hitbox_Cow" type="CollisionShape2D" parent="."]
+position = Vector2(452.75, 228.25)
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_risr1")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Hitbox_Cow_Area" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(451.5, 229)
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_agqiy")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

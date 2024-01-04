@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlvfy55cuuwi4"]
+
+[ext_resource type="PackedScene" uid="uid://d3ltqjooqj8ux" path="res://Scenes/player.tscn" id="1_nuypr"]
+[ext_resource type="PackedScene" uid="uid://d3cymh8b62d7x" path="res://Scenes/cow.tscn" id="2_4kent"]
+[ext_resource type="PackedScene" uid="uid://bvq0qiu7elvex" path="res://Scenes/weapon.tscn" id="3_a2psv"]
+[ext_resource type="Script" path="res://Scripts/Player/weapon_axe.gd" id="3_o2frr"]
+
+[node name="World" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_nuypr")]
+position = Vector2(0, 1)
+
+[node name="Weapon_Axe" parent="Player" instance=ExtResource("3_a2psv")]
+position = Vector2(254.667, 133)
+scale = Vector2(3, 3)
+script = ExtResource("3_o2frr")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -0.333333)
+scale = Vector2(0.333333, 0.333333)
+enabled = false
+limit_left = 0
+limit_top = 0
+
+[node name="Cow" parent="." instance=ExtResource("2_4kent")]
